@@ -26,7 +26,7 @@ async def reg_name(message: Message, state: FSMContext):
     with open('catsdate.txt', 'a') as f:
         f.write(f'{message.text} ')
     await state.set_state(Reg.arg)
-    await message.answer('Будем регистрироваться полностью?')
+    await message.answer('Продолжим регистрироваться?')
 
 @user_router.message(Reg.arg)
 async def reg_agreement(message: Message, state: FSMContext):
@@ -34,7 +34,7 @@ async def reg_agreement(message: Message, state: FSMContext):
         await state.set_state(Reg.number)
         await message.answer('Введи свой номер, пожалуйста')
     else:
-        await message.answer('Все за регистрацию.')
+        await message.answer('Cпасибо за регистрацию своего имени!:)')
         await state.clear()
 
 @user_router.message(Reg.number)
@@ -65,3 +65,5 @@ async def echo(message: Message):
         await message.reply_sticker('CAACAgIAAxkBAAEN1btntKBRRr_UK-aAyAeqZA6GvplkuAACNlsAAjO0AUgE5folOi7rbTYE')
     else:
         await message.answer('Ошибка: неверные данные')
+        await message.answer('попытайся еще раз')
+        
