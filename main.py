@@ -7,7 +7,7 @@ from catttttt.h import user_router
 
 
 async def main():
-    bot = Bot(token="7405840785:AAFDUsIG9H25_-2VO_O7nZBeUIycekJvkMA")
+    bot = Bot(token="")
     dp = Dispatcher()
     dp.include_router(router=user_router)
     await dp.start_polling(bot)
